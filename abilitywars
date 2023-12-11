@@ -143,23 +143,35 @@ if game.PlaceId == 8260276694 then
 						end
 					end
 				end
-			end
+			else 
+				while true do
+					if LegitHitbox == false then 
+						for i,v in pairs(game.Players:GetChildren()) do
+							if v ~= game.Players.LocalPlayer then
+								if v.Character then
+									if v.Character:FindFirstChild("HumanoidRootPart") then
+										v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
+										v.Character.HumanoidRootPart.Transparency = 1
+									end
+								end
+							end
+						end
+						
+						break
+					end
 
-			while true do
-				if LegitHitbox == false then break end
-	
-				for i,v in pairs(game.Players:GetChildren()) do
-					if v ~= game.Players.LocalPlayer then
-						if v.Character then
-							if v.Character:FindFirstChild("HumanoidRootPart") then
-								v.Character.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
-								v.Character.HumanoidRootPart.Transparency = 0.75
+					for i,v in pairs(game.Players:GetChildren()) do
+						if v ~= game.Players.LocalPlayer then
+							if v.Character then
+								if v.Character:FindFirstChild("HumanoidRootPart") then
+									v.Character.HumanoidRootPart.Size = Vector3.new(10, 10, 10)
+									v.Character.HumanoidRootPart.Transparency = 0.75
+								end
 							end
 						end
 					end
+					task.wait(2)
 				end
-
-				task.wait(2)
 			end
 		end
 	})
@@ -181,23 +193,35 @@ if game.PlaceId == 8260276694 then
 						end
 					end
 				end
-			end
+			else 
+				while true do
+					if BlatantHitboxes == false then 
+						for i,v in pairs(game.Players:GetChildren()) do
+							if v ~= game.Players.LocalPlayer then
+								if v.Character then
+									if v.Character:FindFirstChild("HumanoidRootPart") then
+										v.Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
+										v.Character.HumanoidRootPart.Transparency = 1
+									end
+								end
+							end
+						end
+						break 
+					end
 
-			while true do
-				if BlatantHitboxes == false then break end
-
-				for i,v in pairs(game.Players:GetChildren()) do
-					if v ~= game.Players.LocalPlayer then
-						if v.Character then
-							if v.Character:FindFirstChild("HumanoidRootPart") then
-								v.Character.HumanoidRootPart.Size = Vector3.new(30, 30, 30)
-								v.Character.HumanoidRootPart.Transparency = 0.6
+					for i,v in pairs(game.Players:GetChildren()) do
+						if v ~= game.Players.LocalPlayer then
+							if v.Character then
+								if v.Character:FindFirstChild("HumanoidRootPart") then
+									v.Character.HumanoidRootPart.Size = Vector3.new(30, 30, 30)
+									v.Character.HumanoidRootPart.Transparency = 0.6
+								end
 							end
 						end
 					end
-				end
 
-				task.wait(2)
+					task.wait(2)
+				end
 			end
 		end
 	})
@@ -214,8 +238,8 @@ if game.PlaceId == 8260276694 then
 						if v.Character["Right Arm"]:FindFirstChild("SelectionBox") == nil and v.Character:FindFirstChild("Highlight") == nil then
 							local DistanceFromCharacter = game.Players.LocalPlayer:DistanceFromCharacter(v.Character.PrimaryPart)
 
-							if DistanceFromCharacter > 15 and v.Name ~= game.Players.LocalPlayer.Name then
-								PunchRemote:FireServer(v.Character,Vector3.new,0,v.Character:FindFirstChild("Head"))
+							if DistanceFromCharacter <= 15 and v.Name ~= game.Players.LocalPlayer.Name then
+								PunchRemote:FireServer(v.Character, Vector3.new , 0, v.Character:FindFirstChild("Head"))
 							end
 						end
 					end
@@ -231,7 +255,7 @@ if game.PlaceId == 8260276694 then
 		Default = false,
 		Callback = function(Value)
 			local Boss 
-			
+
 			if game.Workspace:FindFirstChild("Dog") then
 				Boss = "Dog"
 			elseif game.Workspace:FindFirstChild("Cat") then
@@ -245,7 +269,7 @@ if game.PlaceId == 8260276694 then
 			end
 
 			local AutoKillBoss = Value
-			
+
 			if Boss ~= nil then
 				while AutoKillBoss do
 					PunchRemote:FireServer(workspace:WaitForChild(Boss),Vector3.new,0,workspace[Boss]:FindFirstChild("Right Leg"))
@@ -399,12 +423,12 @@ if game.PlaceId == 8260276694 then
 		Default = false,
 		Callback = function(Value)
 			local KeepWalkspeed = Value
-			
+
 			while KeepWalkspeed do
 				if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.WalkSpeed ~= Walkspeed then
 					game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").WalkSpeed = Walkspeed
 				end
-				
+
 				task.wait(.5)
 			end
 		end    
@@ -429,12 +453,12 @@ if game.PlaceId == 8260276694 then
 		Default = false,
 		Callback = function(Value)
 			local KeepJumppower = Value
-			
+
 			while KeepJumppower do
 				if game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") ~= nil and game.Players.LocalPlayer.Character.Humanoid.JumpPower ~= Jumppower then
 					game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").JumpPower = Jumppower
 				end
-				
+
 				task.wait(.5)
 			end
 		end    
