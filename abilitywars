@@ -2,7 +2,7 @@ if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
 
-local OrionLib = loadstring('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')
+local OrionLib =  loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 local PunchRemote = game:GetService("ReplicatedStorage"):FindFirstChild("Remote Events").Punch
 
 if game.PlaceId == 8260276694 or game.PlaceId == 10626447503 then 
